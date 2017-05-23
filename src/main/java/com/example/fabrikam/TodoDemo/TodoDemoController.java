@@ -6,7 +6,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.ArrayList;
 
@@ -34,9 +33,7 @@ public class TodoDemoController {
 
     @RequestMapping("/update")
     public String updateTodo(@ModelAttribute TodoListViewModel requestItems) {
-        System.out.print(requestItems.getTodoList());
         for (TodoItem requestItem : requestItems.getTodoList() ) {
-             System.out.println(requestItem);
              TodoItem item = new TodoItem(requestItem.getCategory(), requestItem.getName());
              item.setComplete(requestItem.isComplete());
              item.setId(requestItem.getId());
